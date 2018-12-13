@@ -1,0 +1,44 @@
+﻿<Window x:Class="ObservableCollection.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ObservableCollection"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="400" Name="mainWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!--<ListBox x:Name="phonesList" Padding="5" FontSize="14"/>-->
+        <ListBox x:Name="personsList" Padding="5" FontSize="14" SelectionChanged="PersonsList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path='Name'}"></TextBlock>
+                        <TextBlock Text="; "></TextBlock>
+                        <TextBlock Text="{Binding Path='Age'}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal"
+            Margin="0 15 0 0"
+            HorizontalAlignment="Center">
+            <!--<TextBox Name="phoneTextBox" Width="190" Padding="5" FontSize="14"/>-->
+            <TextBlock>Name:</TextBlock>
+            <TextBox Name="personNameTextBox" Width="100" Padding="5" FontSize="14"/>
+            <TextBlock>Age:</TextBlock>
+            <TextBox Name="personAgeTextBox" Width="100" Padding="5" FontSize="14"/>
+            <Button
+                Content="Сохранить"
+                MaxWidth="125"
+                Margin="10 0 0 0"
+                FontSize="14"
+                Click="Button_Click" />
+        </StackPanel>
+    </Grid> 
+</Window>
